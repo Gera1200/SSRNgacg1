@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Antigüedad</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Calculadora de Antigüedad</h1>
+
+        <form id="formRegistro">
+            <label>Terminación Clave:</label>
+            <input type="text" id="terminacionClave" maxlength="6" required>
+
+            <label>Fecha de Alta (dd/mm/aaaa):</label>
+            <input type="date" id="fechaAlta" required>
+
+            <label>Fecha de Baja (dd/mm/aaaa):</label>
+            <input type="date" id="fechaBaja">
+
+            <label>Tipo:</label>
+            <select id="tipo">
+                <option value="1">Activo</option>
+                <option value="2">Licencia</option>
+            </select>
+
+            <label>Entidad Federativa:</label>
+            <select id="entidadFederativa">
+                <option value="1">Estado de México</option>
+                <!-- Agrega el resto de entidades federativas aquí -->
+            </select>
+
+            <button type="button" onclick="agregarRegistro()" class="boton-rojo">Agregar</button>
+            <button type="button" onclick="editarRegistro()" class="boton-rojo">Editar Registro</button>
+            <button type="button" onclick="eliminarRegistro()" class="boton-rojo">Eliminar Registro</button>
+        </form>
+
+        <h2>Registros</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Terminación Clave</th>
+                    <th>Fecha de Ingreso</th>
+                    <th>Fecha de Egreso</th>
+                    <th>Tipo</th>
+                    <th>Entidad Federativa</th>
+                    <th>Intervalo de Tiempo</th>
+                </tr>
+            </thead>
+            <tbody id="tablaRegistros"></tbody>
+        </table>
+
+        <button type="button" onclick="calcular()" class="boton-rojo">Calcular</button>
+
+        <h2>Resultados</h2>
+        <p>Sumatoria Final Tiempo Activo en Años, Meses y Días: <span id="tiempoActivo"></span></p>
+        <p>Sumatoria Final Tiempo en Licencia en Años, Meses y Días: <span id="tiempoLicencia"></span></p>
+
+        <button type="button" onclick="eliminarTodo()" class="boton-rojo">Eliminar Todo</button>
+
+        <footer>
+            <p>SSRN BPE/GACG</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
